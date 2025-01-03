@@ -167,7 +167,7 @@ class _PostProductState extends State<PostProduct> {
                                       .toString(),
                                   delivery: deliveryChargesController.text,
                                   company: brandNameController.text,
-                                  category: '')
+                                  category: categoryController.text)
                               .toMap());
                     },
                     themeMode: themeMode,
