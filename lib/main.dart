@@ -8,6 +8,7 @@ import 'package:twear/screens/profile/profile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
   runApp(MultiBlocProvider(
       providers: [BlocProvider(create: (_) => ThemeCubit())],
       child: BlocBuilder<ThemeCubit, CTheme>(

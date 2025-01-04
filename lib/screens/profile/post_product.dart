@@ -1,11 +1,12 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:twear/core/theme/theme.dart';
 import 'package:twear/core/utils/get_theme_state.dart';
 import 'package:twear/core/utils/screen_size.dart';
-import 'package:twear/core/utils/tmp_pjms.dart';
-import 'package:twear/models/product_model.dart';
 import 'package:twear/screens/global_widgets/glowing_container.dart';
 import 'package:twear/screens/global_widgets/navbar.dart';
 import 'package:twear/screens/global_widgets/prime_button.dart';
@@ -101,7 +102,6 @@ class _PostProductState extends State<PostProduct> {
                   padding: const EdgeInsets.all(8.0),
                   child: DescriptionEditor(
                       focusNode: _focusNode,
-                      themeMode: themeMode,
                       editorController: _editorController,
                       scrollController: _scrollController),
                 ),
@@ -144,31 +144,44 @@ class _PostProductState extends State<PostProduct> {
                     if (images.length < 6)
                       ImagesButton(
                           onpress: () async {
-                            images =
+                            List<XFile> imagesPicked =
                                 await _imagePicker.pickMultiImage(limit: 6);
+                            setState(() {
+                              images = imagesPicked;
+                            });
                           },
                           themeMode: themeMode),
-                    ...images.map((element) => glowingContainer(
-                        child: Image.asset(element.path), themeMode: themeMode))
+                    ...images.map((element) {
+                      // print(loadImage2Save(element.path));
+                      return glowingContainer(
+                          child: Image.file(File(element.path)),
+                          themeMode: themeMode);
+                    })
                   ],
                 ),
                 PrimeButton(
                     action: () {
-                      writeData(
-                          location: "products.json",
-                          data: Product(
-                                  name: productNameController.text,
-                                  price: double.parse(priceController.text),
-                                  images: [],
-                                  stock: int.parse(stockController.text),
-                                  details: _editorController.document
-                                      .toDelta()
-                                      .toJson()
-                                      .toString(),
-                                  delivery: deliveryChargesController.text,
-                                  company: brandNameController.text,
-                                  category: categoryController.text)
-                              .toMap());
+                      print(jsonEncode(
+                          _editorController.document.toDelta().toJson()));
+
+                      // writeData(
+                      //     location: "products.json",
+                      //     data: Product(
+                      //             name: productNameController.text,
+                      //             price: double.parse(priceController.text),
+                      //             images: images
+                      //                 .map((element) =>
+                      //                     loadImage2Save(element.path))
+                      //                 .toList(),
+                      //             stock: int.parse(stockController.text),
+                      //             details: _editorController.document
+                      //                 .toDelta()
+                      //                 .toJson()
+                      //                 .toString(),
+                      //             delivery: deliveryChargesController.text,
+                      //             company: brandNameController.text,
+                      //             category: categoryController.text)
+                      //         .toMap());
                     },
                     themeMode: themeMode,
                     width: width * .2,

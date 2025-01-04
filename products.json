@@ -1,1 +1,71 @@
-[]
+[
+    {
+        "name": "AJKK-24 Embroidered Chiffon 3-Piece Suit",
+        "price": 6550.00,
+        "images": [
+            "https://example.com/images/ajkk-24-front.jpg",
+            "https://example.com/images/ajkk-24-back.jpg",
+            "https://example.com/images/ajkk-24-detail.jpg"
+        ],
+        "stock": 10,
+        "details": [
+            {
+                "insert": "Bloom",
+                "attributes": {
+                    "color": "#FF66BB6A"
+                }
+            },
+            {
+                "insert": " like a twilight pansy in this enchanting ensemble, a blend of pink and purple that evokes the beauty of a violet dusk. The embroidered pink shirt unfolds like a delicate petal, "
+            },
+            {
+                "insert": "adorned",
+                "attributes": {
+                    "color": "#FF4FC3F7"
+                }
+            },
+            {
+                "insert": " with shimmering gold zari and scattered gold "
+            },
+            {
+                "insert": "sequins",
+                "attributes": {
+                    "bold": true
+                }
+            },
+            {
+                "insert": " that resemble stardust sprinkled across the night sky, adding an ethereal "
+            },
+            {
+                "insert": "luminescence",
+                "attributes": {
+                    "script": "super"
+                }
+            },
+            {
+                "insert": ". The minimally embroidered dark lavender dupatta complements the ensemble's beauty, ensuring you leave a lasting "
+            },
+            {
+                "insert": "impression",
+                "attributes": {
+                    "italic": true
+                }
+            },
+            {
+                "insert": " at any "
+            },
+            {
+                "insert": "celebration",
+                "attributes": {
+                    "underline": true
+                }
+            },
+            {
+                "insert": ".\n"
+            }
+        ],
+        "delivery": "Free delivery within 5-7 business days.",
+        "company": "Asim Jofa",
+        "category": "Women's Clothing"
+    }
+]
